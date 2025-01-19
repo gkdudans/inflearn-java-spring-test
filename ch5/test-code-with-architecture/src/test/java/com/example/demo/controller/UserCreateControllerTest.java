@@ -7,8 +7,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.demo.model.dto.UserCreateDto;
-import com.example.demo.model.dto.UserUpdateDto;
+import com.example.demo.user.domain.UserCreate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
@@ -43,7 +42,7 @@ public class UserCreateControllerTest {
   @Test
   void 사용자는_회원_가입을_할_수_있고_회원가입된_사용자는_pending_상태이다() throws Exception {
     // given
-    UserCreateDto userCreateDto = UserCreateDto.builder()
+    UserCreate userCreateDto = UserCreate.builder()
         .email("chrismhy1027@kakao.com")
         .nickname("gkdudans-test")
         .address("Pangyo")

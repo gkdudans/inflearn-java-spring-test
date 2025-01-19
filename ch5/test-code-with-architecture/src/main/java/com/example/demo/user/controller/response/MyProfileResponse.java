@@ -1,8 +1,9 @@
-package com.example.demo.model.dto;
+package com.example.demo.user.controller.response;
 
-import com.example.demo.model.UserStatus;
+import com.example.demo.user.domain.UserStatus;
 import lombok.Getter;
 import lombok.Setter;
+
 
 @Getter
 @Setter

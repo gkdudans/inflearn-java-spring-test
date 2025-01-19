@@ -3,28 +3,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 
-import com.example.demo.exception.CertificationCodeNotMatchedException;
-import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.model.UserStatus;
-import com.example.demo.model.dto.UserCreateDto;
-import com.example.demo.model.dto.UserUpdateDto;
-import com.example.demo.repository.UserEntity;
+import com.example.demo.user.domain.UserCreate;
+import com.example.demo.user.domain.UserEntity;
+import com.example.demo.user.domain.UserStatus;
+import com.example.demo.user.domain.UserUpdate;
+import com.example.demo.user.service.UserService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.context.jdbc.SqlGroup;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @SpringBootTest
 @TestPropertySource("classpath:test-application.properties")
@@ -61,7 +55,7 @@ public class UserServiceTest {
     // then
     assertThatThrownBy(() -> {
       UserEntity result = userService.getByEmail(email);
-    }).isInstanceOf(ResourceNotFoundException.class);
+    }).isInstanceOf(com.example.demo.common.exception.ResourceNotFoundException.class);
   }
 
   @Test
@@ -82,13 +76,13 @@ public class UserServiceTest {
     // then
     assertThatThrownBy(() -> {
       UserEntity result = userService.getById(2);
-    }).isInstanceOf(ResourceNotFoundException.class);
+    }).isInstanceOf(com.example.demo.common.exception.ResourceNotFoundException.class);
   }
 
   @Test
   void UserCreateDto를_이용하여_유저를_생성할_수_있다(){
     // given
-    UserCreateDto userCreateDto = UserCreateDto.builder()
+    UserCreate userCreateDto = UserCreate.builder()
         .email("chrismhy1029@naver.com")
         .address("Gyeongi")
         .nickname("gkdudans3")
@@ -110,7 +104,7 @@ public class UserServiceTest {
   @Test
   void UserUpdateDto를_이용하여_유저를_수정할_수_있다(){
     // given
-    UserUpdateDto userUpdateDto = UserUpdateDto.builder()
+    UserUpdate userUpdateDto = UserUpdate.builder()
         .address("Incheon")
         .nickname("gkdudans-test")
         .build();
@@ -156,7 +150,7 @@ public class UserServiceTest {
     // then
     assertThatThrownBy(() -> {
       userService.verifyEmail(2, "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa");
-    }).isInstanceOf(CertificationCodeNotMatchedException.class);
+    }).isInstanceOf(com.example.demo.common.exception.CertificationCodeNotMatchedException.class);
   }
 
 

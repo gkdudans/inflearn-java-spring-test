@@ -2,9 +2,9 @@ package com.example.demo.repostiory;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.example.demo.model.UserStatus;
-import com.example.demo.repository.UserEntity;
-import com.example.demo.repository.UserRepository;
+import com.example.demo.user.domain.UserEntity;
+import com.example.demo.user.domain.UserStatus;
+import com.example.demo.user.infrastructure.UserRepository;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
