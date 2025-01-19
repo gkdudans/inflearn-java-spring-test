@@ -10,5 +10,5 @@
 - 개선된 아키텍처
   - Domain 계층: oop스러운 도메인들이 협력하는 곳, lombok을 제외한 어노테이션이 없는 오브젝트, 계층 간 연결된 의존성이 없음
   - 의존성 역전 사용: Service(Interface)를 만들고 ServiceImpl를 둠
-  - 테스트할 때 Service에 대응되는 Fack나 Mock을 Service 구현체로 둘 수 있
+  - 테스트할 때 Service에 대응되는 Fack나 Mock을 Service 구현체로 둘 수 있음
 ![image](https://github.com/user-attachments/assets/dfac6ed2-ab37-475a-a2d9-d537db7c290e)
