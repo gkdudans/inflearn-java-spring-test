@@ -4,7 +4,6 @@ import com.example.demo.user.domain.UserStatus;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 public class MyProfileResponse {

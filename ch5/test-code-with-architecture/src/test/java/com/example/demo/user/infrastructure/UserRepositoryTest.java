@@ -1,10 +1,9 @@
-package com.example.demo.repostiory;
+package com.example.demo.user.infrastructure;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.example.demo.user.domain.UserEntity;
 import com.example.demo.user.domain.UserStatus;
-import com.example.demo.user.infrastructure.UserRepository;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,7 +21,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class UserRepositoryTest {
 
   @Autowired
-  private UserRepository userRepository;
+  private UserJpaRepository userRepository;
 
 //  @Test
 //  void UserRepository가_제대로_연결되었다(){

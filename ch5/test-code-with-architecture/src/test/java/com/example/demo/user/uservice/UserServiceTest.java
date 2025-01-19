@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.user.uservice;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
@@ -88,7 +88,7 @@ public class UserServiceTest {
         .nickname("gkdudans3")
         .build();
 
-    // 이메일 발기 위한 mockito
+    // 이메일 받기 위한 mockito
     BDDMockito.doNothing().when(javaMailSender).send(any(SimpleMailMessage.class));
 
     // when
