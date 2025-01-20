@@ -1,5 +1,7 @@
 package com.example.demo.user.domain;
 
+import com.example.demo.common.service.port.ClockHolder;
+import com.example.demo.common.service.port.UuidHolder;
 import java.time.Clock;
 import java.util.UUID;
 import lombok.Builder;
@@ -29,13 +31,13 @@ public class User {
   }
 
   // User가 책임을 가짐
-  public static User from(UserCreate userCreate){
+  public static User from(UserCreate userCreate, UuidHolder uuidHolder){
     return User.builder()
         .email(userCreate.getEmail())
         .nickname(userCreate.getNickname())
         .address(userCreate.getAddress())
         .status(UserStatus.PENDING)
-        .certificationCode(UUID.randomUUID().toString())
+        .certificationCode(uuidHolder.random())
         .build();
   }
 
@@ -51,14 +53,14 @@ public class User {
         .build();
   }
 
-  public User login(){
+  public User login(ClockHolder clockHolder){
     return User.builder()
         .id(id)
         .email(email)
         .nickname(nickname)
         .address(address)
         .status(status)
-        .lastLoginAt(Clock.systemUTC().millis())
+        .lastLoginAt(clockHolder.millis())
         .certificationCode(certificationCode)
         .build();
   }
