@@ -11,10 +11,12 @@ import com.example.demo.user.domain.UserUpdate;
 import com.example.demo.user.service.port.UserRepository;
 import java.time.Clock;
 import java.util.UUID;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Builder
 @Service
 @RequiredArgsConstructor
 public class UserService {
