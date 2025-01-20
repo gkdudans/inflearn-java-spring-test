@@ -1,9 +1,8 @@
 package com.example.demo.user.domain;
 
+import com.example.demo.common.domain.exception.CertificationCodeNotMatchedException;
 import com.example.demo.common.service.port.ClockHolder;
 import com.example.demo.common.service.port.UuidHolder;
-import java.time.Clock;
-import java.util.UUID;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -67,7 +66,7 @@ public class User {
 
   public User certificate(String certificationCode){
     if (!this.certificationCode.equals(certificationCode)) {
-      throw new com.example.demo.common.exception.CertificationCodeNotMatchedException();
+      throw new CertificationCodeNotMatchedException();
     }
     return User.builder()
         .id(id)
