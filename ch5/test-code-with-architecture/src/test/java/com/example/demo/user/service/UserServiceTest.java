@@ -3,6 +3,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 
+import com.example.demo.common.domain.exception.CertificationCodeNotMatchedException;
+import com.example.demo.common.domain.exception.ResourceNotFoundException;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserCreate;
 import com.example.demo.user.domain.UserEntity;
@@ -55,7 +57,7 @@ public class UserServiceTest {
     // then
     assertThatThrownBy(() -> {
       User result = userService.getByEmail(email);
-    }).isInstanceOf(com.example.demo.common.exception.ResourceNotFoundException.class);
+    }).isInstanceOf(ResourceNotFoundException.class);
   }
 
   @Test
@@ -76,7 +78,7 @@ public class UserServiceTest {
     // then
     assertThatThrownBy(() -> {
       User result = userService.getById(2);
-    }).isInstanceOf(com.example.demo.common.exception.ResourceNotFoundException.class);
+    }).isInstanceOf(ResourceNotFoundException.class);
   }
 
   @Test
@@ -150,7 +152,7 @@ public class UserServiceTest {
     // then
     assertThatThrownBy(() -> {
       userService.verifyEmail(2, "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa");
-    }).isInstanceOf(com.example.demo.common.exception.CertificationCodeNotMatchedException.class);
+    }).isInstanceOf(CertificationCodeNotMatchedException.class);
   }
 
 
