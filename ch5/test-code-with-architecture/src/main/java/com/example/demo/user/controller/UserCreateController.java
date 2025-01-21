@@ -1,10 +1,11 @@
 package com.example.demo.user.controller;
 
-import com.example.demo.user.controller.port.UserCreateService;
+import com.example.demo.user.controller.port.UserService;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserCreate;
 import com.example.demo.user.controller.response.UserResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,16 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Tag(name = "유저(users)")
 @RestController
+@Builder
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class UserCreateController {
 
     // 컨트롤러 간 의존성 제거
-    private final UserCreateService userCreateService;
+    private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserResponse> createUser(@RequestBody UserCreate userCreate) {
-        User user = userCreateService.create(userCreate);
+    public ResponseEntity<UserResponse> create(@RequestBody UserCreate userCreate) {
+        User user = userService.create(userCreate);
         return ResponseEntity
             .status(HttpStatus.CREATED)
             .body(UserResponse.from(user));

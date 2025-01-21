@@ -3,10 +3,7 @@ package com.example.demo.user.service;
 import com.example.demo.common.domain.exception.ResourceNotFoundException;
 import com.example.demo.common.service.port.ClockHolder;
 import com.example.demo.common.service.port.UuidHolder;
-import com.example.demo.user.controller.port.AuthenticationService;
-import com.example.demo.user.controller.port.UserCreateService;
-import com.example.demo.user.controller.port.UserReadService;
-import com.example.demo.user.controller.port.UserUpdateService;
+import com.example.demo.user.controller.port.UserService;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserCreate;
 import com.example.demo.user.domain.UserStatus;
@@ -20,8 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Builder
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserCreateService, UserReadService, UserUpdateService,
-    AuthenticationService {
+public class UserServiceImpl implements UserService {
+    // TestContainer를 사용하기 때문에 implements UserService로 변경
 
     private final UserRepository userRepository;
     private final CertificationService certificationService;
