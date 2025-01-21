@@ -2,32 +2,26 @@ package com.example.demo.post.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.example.demo.mock.FakeMailSender;
 import com.example.demo.mock.FakePostRepository;
 import com.example.demo.mock.FakeUserRepository;
 import com.example.demo.mock.TestClockHolder;
-import com.example.demo.mock.TestUuidHoler;
 import com.example.demo.post.domain.Post;
 import com.example.demo.post.domain.PostCreate;
 import com.example.demo.post.domain.PostUpdate;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserStatus;
-import com.example.demo.user.service.CertificationService;
-import com.example.demo.user.service.UserService;
-import com.example.demo.user.service.port.UserRepository;
-import jakarta.validation.constraints.AssertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PostServiceTest {
 
-  private PostService postService;
+  private PostServiceImpl postService;
 
   @BeforeEach
   void init(){
     FakeUserRepository fakeUserRepository = new FakeUserRepository();
     FakePostRepository fakePostRepository = new FakePostRepository();
-    this.postService = PostService.builder()
+    this.postService = PostServiceImpl.builder()
         .postRepository(fakePostRepository)
         .userRepository(fakeUserRepository)
         .clockHolder(new TestClockHolder(1678530673958L))

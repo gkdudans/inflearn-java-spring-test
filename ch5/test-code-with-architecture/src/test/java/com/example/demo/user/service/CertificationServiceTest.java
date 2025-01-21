@@ -3,7 +3,6 @@ package com.example.demo.user.service;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import com.example.demo.mock.FakeMailSender;
-import com.example.demo.user.service.port.MailSender;
 import org.junit.jupiter.api.Test;
 
 public class CertificationServiceTest {
