@@ -36,7 +36,7 @@ public class PostTest {
     assertThat(post.getWriter().getAddress()).isEqualTo("Seoul");
     assertThat(post.getWriter().getNickname()).isEqualTo("gkdudans");
     assertThat(post.getWriter().getStatus()).isEqualTo(UserStatus.ACTIVE);
-    assertThat(post.getCreatedAt()).isEqualTo("1678530673958L");
+    assertThat(post.getCreatedAt()).isEqualTo(1678530673958L);
     assertThat(post.getWriter().getCertificationCode()).isEqualTo("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaab");
   }
 
@@ -66,7 +66,7 @@ public class PostTest {
 
     // then
     assertThat(post.getContent()).isEqualTo("footbar");
-    assertThat(post.getModifiedAt()).isEqualTo("1678530673958L");
+    assertThat(post.getModifiedAt()).isEqualTo(1678530673958L);
 
   }
 
