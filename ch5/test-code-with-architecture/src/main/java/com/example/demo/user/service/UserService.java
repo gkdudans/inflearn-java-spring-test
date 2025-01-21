@@ -56,7 +56,7 @@ public class UserService {
 
     @Transactional
     public void login(long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Users", id));
+        User user = userRepository.getById(id);
         user = user.login(clockHolder);
         userRepository.save(user);
         // Jpa와의 의존성이 끊어지면서 save가 필요해짐
@@ -64,7 +64,7 @@ public class UserService {
 
     @Transactional
     public void verifyEmail(long id, String certificationCode) {
-        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Users", id));
+        User user = userRepository.getById(id);
         user = user.certificate(certificationCode);
         userRepository.save(user);
     }
