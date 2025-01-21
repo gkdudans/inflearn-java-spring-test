@@ -1,5 +1,7 @@
-package com.example.demo.user.domain;
+package com.example.demo.user.infrastructure;
 
+import com.example.demo.user.domain.User;
+import com.example.demo.user.domain.UserStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -42,7 +44,7 @@ public class UserEntity {
     @Column(name = "last_login_at")
     private Long lastLoginAt;
 
-    public static UserEntity fromModel(User user) {
+    public static UserEntity from(User user) {
         UserEntity userEntity = new UserEntity();
         userEntity.id = user.getId();
         userEntity.email = user.getEmail();

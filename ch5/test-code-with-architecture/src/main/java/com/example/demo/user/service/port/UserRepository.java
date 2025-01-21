@@ -1,7 +1,6 @@
 package com.example.demo.user.service.port;
 
 import com.example.demo.user.domain.User;
-import com.example.demo.user.domain.UserEntity;
 import com.example.demo.user.domain.UserStatus;
 import java.util.Optional;
 

@@ -2,7 +2,7 @@ package com.example.demo.medium;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.example.demo.user.domain.UserEntity;
+import com.example.demo.user.infrastructure.UserEntity;
 import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.infrastructure.UserJpaRepository;
 import java.util.Optional;

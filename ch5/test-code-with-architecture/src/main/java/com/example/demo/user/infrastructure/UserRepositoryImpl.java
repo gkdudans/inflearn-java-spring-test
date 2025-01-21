@@ -2,7 +2,6 @@ package com.example.demo.user.infrastructure;
 
 import com.example.demo.common.domain.exception.ResourceNotFoundException;
 import com.example.demo.user.domain.User;
-import com.example.demo.user.domain.UserEntity;
 import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.service.port.UserRepository;
 import java.util.Optional;
@@ -27,7 +26,7 @@ public class UserRepositoryImpl implements UserRepository {
 
   @Override
   public User save(User user) {
-    return userJpaRepository.save(UserEntity.fromModel(user)).toModel();
+    return userJpaRepository.save(UserEntity.from(user)).toModel();
   }
 
   @Override

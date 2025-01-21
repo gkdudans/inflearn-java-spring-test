@@ -1,7 +1,6 @@
 package com.example.demo.post.service.port;
 
 import com.example.demo.post.domain.Post;
-import com.example.demo.post.domain.PostEntity;
 import java.util.Optional;
 
 public interface PostRepository {
